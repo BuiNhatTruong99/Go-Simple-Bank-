@@ -4,7 +4,7 @@ INSERT INTO account (
     balance,
     currency
 ) VALUES (
-$1, $2, $3
+    $1, $2, $3
 )
 RETURNING *;
 
@@ -18,12 +18,12 @@ ORDER BY id
 LIMIT $1
 OFFSET $2;
 
--- name: UpdateAuthor :one
+-- name: UpdateAccount :one
 UPDATE account
 set balance = $2
 WHERE id = $1
 RETURNING *;
 
--- name: DeleteAuthor :exec
+-- name: DeleteAccount :exec
 DELETE FROM account
 WHERE id = $1;

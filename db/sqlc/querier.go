@@ -10,10 +10,16 @@ import (
 
 type Querier interface {
 	CreateAccount(ctx context.Context, arg CreateAccountParams) (Account, error)
-	DeleteAuthor(ctx context.Context, id int64) error
+	CreateEntries(ctx context.Context, arg CreateEntriesParams) (Entry, error)
+	CreateTransfers(ctx context.Context, arg CreateTransfersParams) (Transfer, error)
+	DeleteAccount(ctx context.Context, id int64) error
 	GetAccount(ctx context.Context, id int64) (Account, error)
+	GetEntries(ctx context.Context, id int64) (Entry, error)
+	GetTransfers(ctx context.Context, id int64) (Transfer, error)
 	ListAccount(ctx context.Context, arg ListAccountParams) ([]Account, error)
-	UpdateAuthor(ctx context.Context, arg UpdateAuthorParams) (Account, error)
+	ListEntries(ctx context.Context, arg ListEntriesParams) ([]Entry, error)
+	ListTransfers(ctx context.Context, arg ListTransfersParams) ([]Transfer, error)
+	UpdateAccount(ctx context.Context, arg UpdateAccountParams) (Account, error)
 }
 
 var _ Querier = (*Queries)(nil)
