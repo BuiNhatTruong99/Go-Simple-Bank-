@@ -40,7 +40,11 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Install go-migrate
+<<<<<<< HEAD
         run: |
+=======
+      - run: | 
+>>>>>>> 781894de7611fc9494d9c760727c0d60bafe7e02
           curl -L https://github.com/golang-migrate/migrate/releases/download/v4.16.2/migrate.linux-386.tar.gz | tar xvz
           sudo mv migrate /usr/bin
           which migrate
