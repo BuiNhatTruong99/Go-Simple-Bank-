@@ -2,23 +2,19 @@ package db
 
 import (
 	"database/sql"
+	"github.com/BuiNhatTruong99/Go-Simple-Bank-/util"
 	_ "github.com/lib/pq"
 	"log"
 	"os"
 	"testing"
 )
 
-const (
-	dbDriver = "postgres"
-	dbSource = "postgresql://root:secret@localhost:5432/bank_transf?sslmode=disable"
-)
-
 var testQueries *Queries
 var testDB *sql.DB
 
 func TestMain(m *testing.M) {
-	var err error
-	testDB, err = sql.Open(dbDriver, dbSource)
+	config, err := util.LoadConfig("../..")
+	testDB, err = sql.Open(config.DBDriver, config.DBSource)
 	if err != nil {
 		log.Fatal("cannot connect to db: ", err)
 	}

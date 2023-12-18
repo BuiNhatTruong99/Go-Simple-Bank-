@@ -1,9 +1,9 @@
 package db
 
 import (
-	"GoSimpleBank/util"
 	"context"
 	"database/sql"
+	"github.com/BuiNhatTruong99/Go-Simple-Bank-/util"
 	"github.com/stretchr/testify/require"
 	"testing"
 	"time"
